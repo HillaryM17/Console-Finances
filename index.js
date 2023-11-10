@@ -87,5 +87,36 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// Total number of Months 
+
+var Months = finances.length
+
 console.log("Financial Analysis");
-console.log("Total number of months is: " + finances.length) 
+
+console.log("Total number of months is: " + Months)
+
+// Total amount of Profit/Loss over entire period
+
+var sum = 0;
+
+for (var i = 0; i < Months; i++) {
+  sum += (finances[i][1]);
+}
+console.log("Total amount of profit/loss over entire period: " + sum)
+
+//Average of Changes in profit/loss
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
