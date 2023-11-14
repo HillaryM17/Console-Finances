@@ -88,26 +88,46 @@ var finances = [
 ];
 
 // Total number of Months 
-
 var Months = finances.length
 
-console.log("Financial Analysis");
-
-console.log("Total number of months is: " + Months)
-
 // Total amount of Profit/Loss over entire period
-
 var sum = 0;
-
 for (var i = 0; i < Months; i++) {
   sum += (finances[i][1]);
 }
-console.log("Total amount of profit/loss over entire period: " + sum)
 
 //Average of Changes in profit/loss
+var TotalProfitDifference = 0;
+var GreatestProfitDifference = 0;
+var GreatestProfitDifferenceMonth; 
+var LeastProfitDifference = 0;
+var LeastProfitDifferenceMonth; 
+for (var i = 0; i < Months-1; i++) {
+var LastMonth = finances[i][1];
+var ThisMonth = finances[i+1][1];
+var ProfitDifference = ThisMonth - LastMonth;
+//Greatest Increase in Profits/Losses
+if (GreatestProfitDifference<ProfitDifference){
+        GreatestProfitDifference=ProfitDifference
+        GreatestProfitDifferenceMonth = finances[i+1][0]
+        //console.log(finances[i+1])
+}
+//Greatest Decrease in Profits/Losses 
+if (LeastProfitDifference>ProfitDifference){
+  LeastProfitDifference=ProfitDifference
+  LeastProfitDifferenceMonth = finances [i+1][0] 
+}
+TotalProfitDifference += ProfitDifference
+} 
 
+var FixedTotalProfitDifference = TotalProfitDifference/(Months-1)
 
-
+console.log("Financial Analysis");
+console.log("Total number of months is: " + Months)
+console.log("Total amount of profit/loss over entire period: $" + sum)
+console.log("Average Change in Loss over entire Period: " + "$" + FixedTotalProfitDifference.toFixed(2))
+console.log("Greatest Increase in Profits/Losses: " + GreatestProfitDifferenceMonth +" " + "$" + GreatestProfitDifference)
+console.log("Greatest Decrease in Profits/Losses: " + LeastProfitDifferenceMonth + " " + "$" + LeastProfitDifference)
 
 
 
